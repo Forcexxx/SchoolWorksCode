@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+int balance = 150000;
+char choice;
+
+int amount;
+int deposit(int);
+int withdraw(int);
+int balance_Inq(int);
+
+int main(){
+	cout << "	### BANK TRANSACTION ###\n\n";
+	
+	cout << "[D] Deposit Transcation\n";
+	cout << "[W] Withdraw Transaction\n";
+	cout << "[B] Balance Inquiry\n\n";
+	cout << "[E] Exit" << endl;
+	
+	cout << "\nEnter your desired transactions: ";
+	cin >> choice;
+	
+	if(choice == 'D' || choice == 'd'){
+		cout << "Enter amount to deposit: ";
+		cin >> amount;
+		deposit(amount);		
+	}if(choice == 'W' || choice == 'w'){
+		cout << "Enter amount to withdraw: ";
+		cin >> amount;
+		withdraw(amount);
+		
+	}if(choice == 'B' || choice == 'b'){
+		cout << "Balance Inquiry: ";
+		
+	}if(choice == 'E' || choice == 'e'){
+		cout << "Thankyou for banking with us!\n";
+		return 0;
+	}
+
+}
+
+int deposit(int x){
+	balance += amount;
+	
+	cout << "Balance is " << balance;
+}
+
+int withdraw(){
+	balance -= amount;
+	cout << "Balance is " << balance;
+}
+
+int balance_Inq(){
+	
+}
