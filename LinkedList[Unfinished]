@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+
+struct Node{ 
+	char m_b; 
+	int m_m; 
+	char m_ij;
+	std::string m_d;
+	int m_p;
+	Node *next;
+};
+
+Node *head = NULL;
+Node *node = NULL;
+Node *tail = NULL;
+
+void inputNode(char b = 0, int m = 0, char ij = 0, std::string d = 0, int p = 0){
+	node = new Node;
+	node->m_b = b;
+	node->m_m = m;
+	node->m_ij = ij;
+	node->m_d = d;
+	node->m_p = p;
+	node->next = NULL;
+	if(head == NULL)
+		head = tail = node;
+	else {
+		tail->next = node;
+		tail = node;
+		node = NULL;
+	}
+}
+
+void printNode(){
+	if(head == NULL){
+		return;
+	}
+	node = head;
+	int test = 0;
+	char t;
+	while(node != NULL){
+		if(!test){
+			std::cout << node->m_b << " ";
+			if(node->m_m == 0){
+				std::cout << "!(Marked)" << std::endl;
+			} else if (node->m_m == 1){
+				std::cout << "(Marked)" << std::endl;
+			} else {
+				return;
+			}
+			t = node->m_ij;
+			std::cout << t << std::endl;
+		}
+		if(node->m_ij != t){
+			t = node->m_ij;
+			std::cout << t << std::endl;
+		}
+		std::cout << node->m_p << " - ";
+		std::cout << node->m_d << std::endl;
+		node = node->next;
+		test++;
+	}
+	
+}
